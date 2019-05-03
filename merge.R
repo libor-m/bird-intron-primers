@@ -1,0 +1,5 @@
+setwd("d:/work/primer_design")
+pr <- read.delim("primers.txt", skip=1, header=F)
+filt <- read.csv("filt.txt")
+pr2f <- sapply(pr[,1], grep, filt$tgID)
+write.csv2(file="bound1.csv", cbind(pr, filt[pr2f,-1]))
